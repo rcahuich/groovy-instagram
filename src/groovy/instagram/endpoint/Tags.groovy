@@ -9,8 +9,9 @@ class Tags {
 	//Return a list of media (images) as groovy.instragram.Image objects for a given Instagram tag
 	def static recent(tag, params){
 		def response = new URL(Configuration.DEFAULT_ENDPOINT + "tags/${tag}/media/recent?" + Utils.getParameterString(params)).text
+		println response
 		def parser = new Parser()
-		def images = parser.parseImage(response)	
+		def images = parser.parseImages(response)	
 		images
 	}
 	

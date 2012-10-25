@@ -7,7 +7,7 @@ import groovy.json.JsonSlurper
 
 class Parser {
 	
-	def parseImage(json_response){
+	def parseImages(json_response){
 	  def slurper = new JsonSlurper()
 	  def result = slurper.parseText(json_response)
 	  def image
