@@ -12,6 +12,7 @@ local.properties
 .classpath
 .settings/
 .loadpath
+src/groovy/test/Driver.groovy
 
 # External tool builders
 .externalToolBuilders/

@@ -9,7 +9,7 @@ class Utils {
 		
 		params.eachWithIndex() { it , i ->
 			paramsString += it.key + "=" + it.value
-			i < params.size() ?: (paramsString += "&")
+			i < params.size() - 1 ? (paramsString += "&") : (paramsString += "")
 		  }
 		
 		paramsString

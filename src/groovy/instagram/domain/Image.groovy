@@ -28,5 +28,7 @@ class Image {
 	def latitude
 	def longitude
 	
+	def next_max_id //used for pagination
+	
 
 }

@@ -12,9 +12,11 @@ class Parser {
 	  def result = slurper.parseText(json_response)
 	  def image
 	  def images = []
+	  def next_max_id = result.pagination?.next_max_tag_id
 
 	  result.data.each{ it ->
 		  image = parseItem(it)
+		  image.next_max_id = next_max_id
 		  images.add(image)
 	  }//end each
 	  
@@ -55,6 +57,7 @@ class Parser {
 		image.latitude = itemMap.location?.latitude
 		image.longitude = itemMap.location?.longitude
 		
+		println itemMap
 		image.id = itemMap.id
   
 		image.thumbnail_url = itemMap.images.thumbnail?.url
@@ -75,6 +78,7 @@ class Parser {
 		image.caption_from_profile_picture = itemMap.caption?.from?.profile_picture   ///thisi s a url
 		image.caption_from_id = itemMap.caption?.id
 		image.caption_from_id_full_name = itemMap.caption?.full_name
+
 		
 		user.username = itemMap.user?.username
 		user.website = itemMap.user?.website
