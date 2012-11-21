@@ -2,7 +2,7 @@ package groovy.instagram.test
 import groovy.instagram.endpoint.Media;
 import groovy.instagram.endpoint.Tags;
 
-def params = ["client_id" : "e1d53419c04e4ab79e8e535bfc601871"]
+def params = ["client_id" : ""]
 def instagram_tag = "grails48"
 
 def images = Tags.recent(instagram_tag, params)
