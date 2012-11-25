@@ -1,5 +1,5 @@
 
-[![logo](https://dl.dropbox.com/u/19596584/groovy-instagram.jpg)]
+![logo](https://dl.dropbox.com/u/19596584/groovy-instagram.jpg)
 
 groovy-instagram
 ======
