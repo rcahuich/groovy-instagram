@@ -57,7 +57,6 @@ class Parser {
 		image.latitude = itemMap.location?.latitude
 		image.longitude = itemMap.location?.longitude
 		
-		println itemMap
 		image.id = itemMap.id
   
 		image.thumbnail_url = itemMap.images.thumbnail?.url
