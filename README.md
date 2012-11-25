@@ -1,3 +1,6 @@
+
+[![logo](https://dl.dropbox.com/u/19596584/groovy-instagram.jpg)]
+
 groovy-instagram
 ======
 A Groovy client for the Instagram REST and Search APIs
