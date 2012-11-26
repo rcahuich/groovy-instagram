@@ -5,6 +5,7 @@ import groovy.instagram.domain.Tag;
 import groovy.instagram.domain.User;
 import groovy.json.JsonSlurper
 
+
 class Parser {
 	
 	def parseImages(json_response){
@@ -40,6 +41,23 @@ class Parser {
 		}
 		
 		tags
+	}
+	
+	public User parseUser(jsonResponse){
+		
+		def slurper = new JsonSlurper()
+		def result = slurper.parseText(jsonResponse)
+		User user = new User()
+		
+		user.instagramId = result?.user?.id
+		user.profilePicture = result?.user?.profile_picture
+		user.accessToken = result?.access_token
+		user.fullName = result?.user?.full_name
+		user.bio = result?.user?.bio
+		user.username = result?.user?.username
+		user.website = result?.user?.website
+		
+		return user
 	}
 	
 	def parseMediaItem(json_response){
@@ -82,9 +100,9 @@ class Parser {
 		user.username = itemMap.user?.username
 		user.website = itemMap.user?.website
 		user.bio = itemMap.user?.bio
-		user.profile_picture = itemMap.user?.profile_picture
-		user.full_name = itemMap.user?.full_name
-		user.id = itemMap.user?.id
+		user.profilePicture = itemMap.user?.profile_picture
+		user.fullName = itemMap.user?.full_name
+		user.instagramId = itemMap.user?.id
 		
 		image.user = user
 		image.tags = itemMap.tags.toString().replaceAll(/[\[\]]/, "").split(",") as List  //force tags to string. Replace all [] and push back to list.

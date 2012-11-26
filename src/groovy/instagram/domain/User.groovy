@@ -5,8 +5,9 @@ class User {
 	def username
 	def website
 	def bio
-	def id
-	def full_name
-	def profile_picture
+	def instagramId										
+	def fullName
+	def profilePicture
+	def accessToken 				//OAuth access token
 
 }

@@ -1,7 +1,7 @@
 package groovy.instagram
 
-import groovy.instagram.http.HttpUtility;
-import groovy.json.JsonSlurper
+import groovy.instagram.domain.User
+import groovy.instagram.http.HttpUtility
 
 class OAuth {
 
@@ -35,24 +35,25 @@ class OAuth {
 		 * @param redirectUrI				This is your callback uri
 		 * @param code							Code received from Instagram callback from authorizatio url
 		 * 
-		 * @return Instagram access token.
+		 * @return User object containing Instagram access token.
 		 */
-		static String requestAccessToken(String clientId, String clientSecret, String redirectUrI, String code, String grantType = "authorization_code"){
+		static User requestAccessToken(String clientId, String clientSecret, String redirectUrI, String code, String grantType = "authorization_code"){
 		
 				def params = [client_id: clientId, client_secret: clientSecret, grant_type: grantType, redirect_uri: redirectUrI, code: code]
 				String requestURL = 'https://api.instagram.com/oauth/access_token';
 				String accessToken
+				def user = null
+				
         try {
             HttpUtility.sendPostRequest(requestURL, params);
             def response = HttpUtility.readSingleLineRespone()
-						def slurper = new JsonSlurper()
-						def result = slurper.parseText(response)
-						accessToken = result.access_token
+						user = new Parser().parseUser(response);
+						
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         HttpUtility.disconnect();
-				return accessToken
+				return user
     }
 		
 
