@@ -47,6 +47,7 @@ class Parser {
 		
 		def slurper = new JsonSlurper()
 		def result = slurper.parseText(jsonResponse)
+		println result
 		User user = new User()
 		
 		user.instagramId = result?.user?.id
@@ -56,7 +57,10 @@ class Parser {
 		user.bio = result?.user?.bio
 		user.username = result?.user?.username
 		user.website = result?.user?.website
-		
+        user.media = result?.user?.counts?.media
+        user.follows = result?.user?.counts?.follows
+        user.followedBy = result?.user?.counts?.followed_by
+
 		return user
 	}
 	

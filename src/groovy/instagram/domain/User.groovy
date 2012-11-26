@@ -9,5 +9,9 @@ class User {
 	def fullName
 	def profilePicture
 	def accessToken 				//OAuth access token
+	
+	def media         			//media count
+	def followedBy					//followed by count
+	def follows							//following count
 
 }
