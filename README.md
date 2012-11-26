@@ -3,7 +3,7 @@
 
 groovy-instagram
 ======
-A Groovy client for the Instagram REST and Search APIs
+A Groovy client for the Instagram API.
 
 Note: This Client is very early stages
 

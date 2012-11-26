@@ -17,6 +17,7 @@ src/groovy/test/Driver.groovy
 Instagram_api.iml
 out/**
 src/groovy/instagram/test/DriverProgram.groovy
+src/groovy/instagram/Configuration.groovy
 
 # External tool builders
 .externalToolBuilders/
